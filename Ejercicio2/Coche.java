@@ -54,8 +54,8 @@ public class Coche {
 
     @Override
     public String toString() {
-        return "Coche: " +
-                "marca: " +
+        return "Coche: " + 
+                "marca: " + marca +
                 ", modelo: " + modelo +
                 ", velocidadMaxima: " + velocidadMaxima 
                 ;

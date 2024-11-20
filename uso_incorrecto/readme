@@ -1,0 +1,60 @@
+public class Persona {
+    private String nombre;
+
+    public Persona(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+public static void main(String[] args) {
+    Persona persona = new Persona("Juan");
+/* 
+  Intento de acceder directamente al atributo privado
+    Esto genera un error de compilación porque 'nombre' es private*/
+    persona.nombre = "Ana"; // Error: 'nombre' tiene acceso privado en 'Persona'
+
+    //Se Intenta  imprimir el atributo directamente
+    System.out.println(persona.nombre); //va a dar un rotundo error debido a que 'nombre' tiene acceso privado en 'Persona'
+ 
+}}
+
+public class Usuario {
+    private String password;
+
+    public Usuario(String password) {
+        this.password = password;
+    }
+}
+
+
+/* 
+
+Al no proporcionar métodos get ni set,
+ no se puede acceder ni modificar el atributo password desde fuera de la clase.
+ Entendiendo eso, se limita la funcionalidad de leer o acceder a ese valor
+ haciendo el codigo incomodo para los demas programadores
+ 
+ */
+
+
+ // clase corregida
+
+
+ public class Usuario {
+    private String password;
+
+    public Usuario(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        if (password == null || password.trim().isEmpty()) {
+            throw new IllegalArgumentException("La contraseña no puede estar vacía.");
+        }
+        this.password = password;
+    }
+}
